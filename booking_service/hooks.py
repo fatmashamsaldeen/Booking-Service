@@ -2,7 +2,7 @@ app_name = "booking_service"
 app_title = "booking-service"
 app_publisher = "fatma"
 app_description = "booking-service"
-app_email = "fshamsaldeen5@gmail.com"
+app_email = "fatma@gmail.com"
 app_license = "mit"
 # required_apps = []
 

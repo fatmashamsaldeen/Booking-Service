@@ -1,7 +1,7 @@
 [project]
 name = "booking_service"
 authors = [
-    { name = "fatma", email = "fshamsaldeen5@gmail.com"}
+    { name = "fatma", email = "fatma@gmail.com"}
 ]
 description = "booking-service"
 requires-python = ">=3.10"

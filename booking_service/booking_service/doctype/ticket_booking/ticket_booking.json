@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Ticket From {from} To {to} -{####}",
+ "creation": "2025-02-05 13:01:55.376421",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "traveler",
+  "traveler_name",
+  "flight",
+  "total_price",
+  "column_break_pctm",
+  "one_way",
+  "booking_status",
+  "section_break_bbxm",
+  "to",
+  "column_break_cskg",
+  "from",
+  "section_break_efwg",
+  "booking_reference"
+ ],
+ "fields": [
+  {
+   "fieldname": "traveler",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Traveler",
+   "options": "Travelers"
+  },
+  {
+   "fieldname": "flight",
+   "fieldtype": "Link",
+   "label": "Flight",
+   "options": "Flight Offer"
+  },
+  {
+   "fetch_from": "flight.total_price",
+   "fieldname": "total_price",
+   "fieldtype": "Data",
+   "label": "Total Price"
+  },
+  {
+   "fieldname": "column_break_pctm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Booked",
+   "fieldname": "booking_status",
+   "fieldtype": "Select",
+   "label": "Booking Status",
+   "options": "Booked\nCompleted\nCanceled"
+  },
+  {
+   "fetch_from": "flight.origin_location_code",
+   "fieldname": "from",
+   "fieldtype": "Data",
+   "label": "From"
+  },
+  {
+   "fetch_from": "flight.destination_location_code",
+   "fieldname": "to",
+   "fieldtype": "Data",
+   "label": "To"
+  },
+  {
+   "fieldname": "section_break_bbxm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_cskg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "one_way",
+   "fieldtype": "Check",
+   "label": "One Way"
+  },
+  {
+   "fieldname": "section_break_efwg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "booking_reference",
+   "fieldtype": "Link",
+   "label": "Booking Reference ",
+   "options": "Booking Services"
+  },
+  {
+   "fetch_from": "traveler.full_name",
+   "fieldname": "traveler_name",
+   "fieldtype": "Data",
+   "label": "Traveler Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-06 22:24:39.945207",
+ "modified_by": "Administrator",
+ "module": "booking-service",
+ "name": "Ticket Booking",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

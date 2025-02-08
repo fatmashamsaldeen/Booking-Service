@@ -1,0 +1,183 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{first_name}-{last_name}-{####}",
+ "creation": "2025-02-05 12:20:27.647484",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "first_name",
+  "last_name",
+  "full_name",
+  "column_break_tudz",
+  "date_of_birth",
+  "gender",
+  "contact_section",
+  "email_address",
+  "device_type",
+  "country_calling_coge",
+  "contact_number",
+  "phone",
+  "documents_section",
+  "document_type",
+  "birth_place",
+  "issuance_location",
+  "column_break_zkxw",
+  "issuance_date",
+  "number",
+  "expiry_date",
+  "column_break_ohqs",
+  "issuance_country",
+  "validity_country",
+  "nationality"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "column_break_tudz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contact_section",
+   "fieldtype": "Section Break",
+   "label": "Contact"
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "device_type",
+   "fieldtype": "Data",
+   "label": "Device Type"
+  },
+  {
+   "fieldname": "country_calling_coge",
+   "fieldtype": "Int",
+   "label": "Country Calling Coge"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "documents_section",
+   "fieldtype": "Section Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Data",
+   "label": "Document Type"
+  },
+  {
+   "fieldname": "birth_place",
+   "fieldtype": "Data",
+   "label": "Birth Place"
+  },
+  {
+   "fieldname": "issuance_location",
+   "fieldtype": "Data",
+   "label": "Issuance Location"
+  },
+  {
+   "fieldname": "column_break_zkxw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issuance_date",
+   "fieldtype": "Date",
+   "label": "Issuance Date"
+  },
+  {
+   "fieldname": "number",
+   "fieldtype": "Data",
+   "label": "Number"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "column_break_ohqs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issuance_country",
+   "fieldtype": "Link",
+   "label": "Issuance Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "validity_country",
+   "fieldtype": "Link",
+   "label": "Validity Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "label": "Nationality"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-05 21:15:43.491984",
+ "modified_by": "Administrator",
+ "module": "booking-service",
+ "name": "Travelers",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

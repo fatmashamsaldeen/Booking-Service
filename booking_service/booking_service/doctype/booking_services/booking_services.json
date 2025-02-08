@@ -1,0 +1,224 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{customer_name}-Booking-{####}",
+ "creation": "2025-02-05 13:15:04.586797",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ticket_booking",
+  "column_break_woak",
+  "hotel_booking",
+  "section_break_gmty",
+  "customer",
+  "customer_name",
+  "phone",
+  "email",
+  "column_break_dbnj",
+  "status",
+  "total_booking_amount",
+  "outstanding",
+  "section_break_zxqk",
+  "flight",
+  "amended_from",
+  "column_break_msol",
+  "flight_price",
+  "column_break_djdo",
+  "one_way",
+  "section_break_fdyh",
+  "travelers",
+  "hotel_booking_section",
+  "hotel",
+  "section_break_twhi",
+  "debit_to",
+  "income_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "ticket_booking",
+   "fieldtype": "Button",
+   "label": "Ticket Booking"
+  },
+  {
+   "fieldname": "flight",
+   "fieldtype": "Link",
+   "label": "Flight",
+   "options": "Flight Offer"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Travelers"
+  },
+  {
+   "fetch_from": "customer.phone",
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone "
+  },
+  {
+   "fetch_from": "customer.email_address",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "column_break_dbnj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Unpaid",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Paid\nUnpaid\nPartially Paid"
+  },
+  {
+   "fieldname": "total_booking_amount",
+   "fieldtype": "Currency",
+   "label": "Total Booking Amount"
+  },
+  {
+   "default": "-1",
+   "fieldname": "outstanding",
+   "fieldtype": "Currency",
+   "label": "Outstanding"
+  },
+  {
+   "fieldname": "column_break_woak",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hotel_booking",
+   "fieldtype": "Button",
+   "label": "Hotel Booking"
+  },
+  {
+   "fieldname": "section_break_gmty",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.flight!=null\r\n",
+   "fieldname": "section_break_zxqk",
+   "fieldtype": "Section Break",
+   "label": "Flight Booking"
+  },
+  {
+   "fieldname": "travelers",
+   "fieldtype": "Table",
+   "label": "Travelers",
+   "options": "Flight Travelers"
+  },
+  {
+   "fetch_from": "flight.total_price",
+   "fieldname": "flight_price",
+   "fieldtype": "Data",
+   "label": "Flight Price"
+  },
+  {
+   "fetch_from": "customer.full_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Booking Services",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_msol",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "one_way",
+   "fieldtype": "Check",
+   "label": "One Way"
+  },
+  {
+   "depends_on": "eval:doc.flight!=null\r\n",
+   "fieldname": "section_break_fdyh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_djdo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_twhi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Debtors - YF",
+   "fieldname": "debit_to",
+   "fieldtype": "Link",
+   "label": "Debit To",
+   "options": "Account"
+  },
+  {
+   "default": "Cash - YF",
+   "fieldname": "income_account",
+   "fieldtype": "Link",
+   "label": "Income Account",
+   "options": "Account"
+  },
+  {
+   "depends_on": "eval:doc.hotel!=null\r\n",
+   "fieldname": "hotel_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Hotel Booking"
+  },
+  {
+   "fieldname": "hotel",
+   "fieldtype": "Table",
+   "label": "Hotel",
+   "options": "Hotels Booking"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-02-08 13:00:33.092863",
+ "modified_by": "Administrator",
+ "module": "booking-service",
+ "name": "Booking Services",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Green",
+   "title": "Paid"
+  },
+  {
+   "color": "Red",
+   "title": "Unpaid"
+  },
+  {
+   "color": "Yellow",
+   "title": "Partially Paid"
+  }
+ ]
+}

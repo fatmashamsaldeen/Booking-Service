@@ -5,6 +5,13 @@ app_description = "booking-service"
 app_email = "fatma@gmail.com"
 app_license = "mit"
 # required_apps = []
+doc_events = {
+    "Payment Entry": {
+        "on_submit": "booking_service.overrides.payment_entry.update_outstanding",
+        "validate": "booking_service.overrides.payment_entry.validate_amounts"
+
+    }
+}
 
 # Includes in <head>
 # ------------------

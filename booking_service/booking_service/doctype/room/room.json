@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{hotel}-{room_view}-{###}",
+ "creation": "2025-02-08 13:26:50.998367",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "hotel",
+  "price_per_night",
+  "column_break_gdop",
+  "room_view",
+  "room_type",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "hotel",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Hotel",
+   "options": "Hotel"
+  },
+  {
+   "fieldname": "price_per_night",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Price Per Night"
+  },
+  {
+   "fieldname": "column_break_gdop",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "room_view",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Room View"
+  },
+  {
+   "fieldname": "room_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Room Type"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Available\nNot Available"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-08 13:38:57.762903",
+ "modified_by": "Administrator",
+ "module": "booking-service",
+ "name": "Room",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:name1",
+ "creation": "2025-02-08 10:32:19.690500",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "chaincode",
+  "iatacode",
+  "hotelid",
+  "countrycode",
+  "rating",
+  "lastupdate",
+  "amenities",
+  "rooms",
+  "available_rooms"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "chaincode",
+   "fieldtype": "Data",
+   "label": "Chain Code"
+  },
+  {
+   "fieldname": "iatacode",
+   "fieldtype": "Data",
+   "label": "IATA Code"
+  },
+  {
+   "fieldname": "hotelid",
+   "fieldtype": "Data",
+   "label": "Hotel Id"
+  },
+  {
+   "fieldname": "countrycode",
+   "fieldtype": "Data",
+   "label": "Country Code"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Data",
+   "label": "Rating"
+  },
+  {
+   "fieldname": "lastupdate",
+   "fieldtype": "Data",
+   "label": "last update"
+  },
+  {
+   "fieldname": "amenities",
+   "fieldtype": "Table",
+   "label": "Amenities",
+   "options": "Amenitiess"
+  },
+  {
+   "fieldname": "rooms",
+   "fieldtype": "Table",
+   "label": "Rooms",
+   "options": "Hotel Rooms"
+  },
+  {
+   "fieldname": "available_rooms",
+   "fieldtype": "Data",
+   "label": "Available Rooms"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-08 13:45:59.765943",
+ "modified_by": "Administrator",
+ "module": "booking-service",
+ "name": "Hotel",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -28,8 +28,8 @@
 ### After confirming the booking services, tickets will be created for all the added passengers based on the selected flight.  
 ![Image](https://github.com/user-attachments/assets/9d08e65d-8971-4d2e-95c3-14cf96ac9fd8)  
 ### ِ Also you can make payment entry  
-![Image](https://github.com/user-attachments/assets/01294ad7-7907-44dd-8d1b-8d6eff9c37fe)
-
+![Image](https://github.com/user-attachments/assets/01294ad7-7907-44dd-8d1b-8d6eff9c37fe)  
+![Image](https://github.com/user-attachments/assets/7a8291d1-b0c8-459d-80fb-8ac1038e2262)
 
 
 

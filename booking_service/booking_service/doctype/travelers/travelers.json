@@ -6,6 +6,8 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "section_break_isee",
+  "column_break_wwce",
   "first_name",
   "last_name",
   "full_name",
@@ -19,6 +21,7 @@
   "contact_number",
   "phone",
   "documents_section",
+  "column_break_npsi",
   "document_type",
   "birth_place",
   "issuance_location",
@@ -33,37 +36,44 @@
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "first_name",
    "fieldtype": "Data",
    "label": "First Name"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "last_name",
    "fieldtype": "Data",
    "label": "Last Name"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "column_break_tudz",
    "fieldtype": "Column Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
    "label": "Date Of Birth"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "gender",
    "fieldtype": "Select",
    "label": "Gender",
    "options": "Male\nFemale"
   },
   {
+   "allow_in_quick_entry": 1,
    "collapsible": 1,
    "fieldname": "contact_section",
    "fieldtype": "Section Break",
    "label": "Contact"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "email_address",
    "fieldtype": "Data",
    "label": "Email Address"
@@ -79,66 +89,79 @@
    "label": "Country Calling Coge"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "contact_number",
    "fieldtype": "Data",
    "label": "Contact Number"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "documents_section",
    "fieldtype": "Section Break",
    "label": "Documents"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "document_type",
    "fieldtype": "Data",
    "label": "Document Type"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "birth_place",
    "fieldtype": "Data",
    "label": "Birth Place"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "issuance_location",
    "fieldtype": "Data",
    "label": "Issuance Location"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "column_break_zkxw",
    "fieldtype": "Column Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "issuance_date",
    "fieldtype": "Date",
    "label": "Issuance Date"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "number",
    "fieldtype": "Data",
    "label": "Number"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "expiry_date",
    "fieldtype": "Date",
    "label": "Expiry Date"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "column_break_ohqs",
    "fieldtype": "Column Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "issuance_country",
    "fieldtype": "Link",
    "label": "Issuance Country",
    "options": "Country"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "validity_country",
    "fieldtype": "Link",
    "label": "Validity Country",
    "options": "Country"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "nationality",
    "fieldtype": "Data",
    "label": "Nationality"
@@ -153,11 +176,26 @@
    "fieldtype": "Data",
    "label": "Full Name",
    "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "section_break_isee",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "column_break_wwce",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "column_break_npsi",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-05 21:15:43.491984",
+ "modified": "2025-02-09 02:18:16.927986",
  "modified_by": "Administrator",
  "module": "booking-service",
  "name": "Travelers",
@@ -177,6 +215,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

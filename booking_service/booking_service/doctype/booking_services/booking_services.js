@@ -46,61 +46,81 @@ frappe.ui.form.on('Booking Services', {
         }, 500); // تأخير التنفيذ حتى يتم تحميل العناصر
     },
     hotel_booking(frm) {
+        frm.save(); // حفظ النموذج أولاً
+    
         const dialog = new frappe.ui.form.MultiSelectDialog({
             doctype: "Hotel",  
             target: frm,
             setters: {
                 iatacode: null,
                 countrycode: null,
-
             },
             add_filters_group: 1,
-
+    
             action(selections) {
-                console.log("Selected Flights:", selections);  
-                
-                if (selections.length ===1) {
-                    let row = frm.add_child("hotel");
-                    row.hotel = selectehotel;
-                    frm.refresh_field("hotel");
+                console.log("Selected Hotels:", selections);  
+    
+                if (selections.length === 1) {
+                    let selectedHotel = selections[0].name; // اسم الفندق المختار
+                    let currentBookingService = frm.doc.name; // اسم خدمة الحجز الحالية
                     
+                    // إنشاء مستند جديد مع تعيين حقل hotel و related_booking_service
+                    frappe.new_doc('Booking Available Rooms', {
+                        hotel: selectedHotel,
+                        related_booking_service: currentBookingService // تمرير اسم البوكنق سيرفيس الحالية
+                    }).then(function(doc) {
+                        // حفظ مستند Booking Available Rooms بعد إنشائه
+                        doc.save().then(function() {
+                            // إغلاق نافذة الاختيار
+                            dialog.dialog.hide();
+                            frappe.show_alert({ message: __("تم إضافة الفندق بنجاح"), indicator: "green" });
+                        });
+                    });
                 }
             }
         });
-
-        // انتظر قليلاً حتى يتم تحميل العناصر داخل الـ Dialog
+    
+        // تأخير بسيط لضمان تحميل عناصر الـ Dialog
         setTimeout(() => {
             let footer = dialog.dialog.$wrapper.find('.modal-footer');
             if (footer.length > 0) {
                 let selectBtn = $('<button class="btn btn-primary">Select</button>');
-
+    
                 selectBtn.click(function () {
                     const selectedItems = dialog.get_checked_items();  // جلب العناصر المختارة
                     if (selectedItems.length > 0) {
-                        let selectehotel = selectedItems[0].name; // جلب اسم الرحلة
-                        // let selectedPrice = selectedItems[0].total_price; // جلب السعر
-
-                        let row = frm.add_child("hotel");
-                        row.hotel = selectehotel;
-                        frm.refresh_field("hotel");
-                                                // frm.set_value("flight_price", selectedPrice); // تخزين السعر في الحقل "flight_price"
-                        dialog.dialog.hide();  // إغلاق النافذة
+                        let selectedHotel = selectedItems[0].name; // جلب اسم الفندق المختار
+                        let currentBookingService = frm.doc.name; // اسم خدمة الحجز الحالية
+                        
+                        // إنشاء مستند جديد مع تعيين حقل hotel و related_booking_service
+                        frappe.new_doc('Booking Available Rooms', { 
+                            hotel: selectedHotel,
+                            related_booking_service: currentBookingService // تمرير اسم البوكنق سيرفيس الحالية
+                        }).then(function(doc) {
+                            // حفظ مستند Booking Available Rooms بعد إنشائه
+                            doc.save().then(function() {
+                                // إغلاق نافذة الاختيار
+                                dialog.dialog.hide();
+                                frappe.show_alert({ message: __("تم إضافة الفندق بنجاح"), indicator: "green" });
+                            });
+                        });
                     } else {
-                        frappe.msgprint(__('Please select a flight first.'));
+                        frappe.msgprint(__('Please select a hotel first.'));
                     }
                 });
-
+    
                 footer.prepend(selectBtn); // إضافة الزر في الفوتر
             }
-        }, 500); // تأخير التنفيذ حتى يتم تحميل العناصر
-    },
+        }, 500); // تأخير تنفيذ الكود لضمان تحميل العناصر
+    }
+,     
     onload: function(frm) {
         if (frm.doc.outstanding === -1.00) {
             frm.toggle_display('outstanding', false);
         }
     },
     refresh: function(frm) {
-        calculate_total_booking_amount(frm);
+        calculate_ticket_booking_amount(frm);
         if (frm.doc.docstatus === 1) {
             if (!frm.custom_buttons['Payment']) {
                 frm.add_custom_button(__('Payment'), function() {
@@ -123,22 +143,22 @@ frappe.ui.form.on('Booking Services', {
     },
     
     flight_price: function(frm) {
-        calculate_total_booking_amount(frm);
+        calculate_ticket_booking_amount(frm);
     }
 });
 frappe.ui.form.on('Travelers', {
     travelers_add: function(frm) { 
-        calculate_total_booking_amount(frm);
+        calculate_ticket_booking_amount(frm);
     },
     travelers_remove: function(frm) { 
-        calculate_total_booking_amount(frm);
+        calculate_ticket_booking_amount(frm);
     }
 });
 
-function calculate_total_booking_amount(frm) {
+function calculate_ticket_booking_amount(frm) {
     let travelers_count = frm.doc.travelers ? frm.doc.travelers.length : 0;
     let flight_price = frm.doc.flight_price || 0;
-    let total_amount = travelers_count * flight_price;
+    let ticket_booking_amount = travelers_count * flight_price;
 
-    frm.set_value('total_booking_amount', total_amount);
+    frm.set_value('ticket_booking_amount', ticket_booking_amount);
 }

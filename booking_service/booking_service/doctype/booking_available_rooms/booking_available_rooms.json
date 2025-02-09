@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{room}_{####}",
+ "creation": "2025-02-08 21:32:12.011123",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_ztcv",
+  "column_break_bzdh",
+  "hotel",
+  "room_type",
+  "room",
+  "column_break_dfpl",
+  "price_per_night",
+  "chick_out_date",
+  "chick_in_date",
+  "section_break_gpgg",
+  "total_amount",
+  "related_booking_service"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "hotel",
+   "fieldtype": "Link",
+   "label": "Hotel",
+   "options": "Hotel"
+  },
+  {
+   "fieldname": "related_booking_service",
+   "fieldtype": "Link",
+   "label": " Related Booking Service ",
+   "options": "Booking Services"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "room_type",
+   "fieldtype": "Select",
+   "label": "Room Type",
+   "options": "Single\nDouble\nSuite"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Room"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "column_break_dfpl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "room.price_per_night",
+   "fieldname": "price_per_night",
+   "fieldtype": "Data",
+   "label": "Price Per Night"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "chick_out_date",
+   "fieldtype": "Date",
+   "label": "Chick Out Date"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "chick_in_date",
+   "fieldtype": "Date",
+   "label": "Chick In Date"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "section_break_gpgg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "section_break_ztcv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "column_break_bzdh",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-09 02:21:37.217350",
+ "modified_by": "Administrator",
+ "module": "booking-service",
+ "name": "Booking Available Rooms",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

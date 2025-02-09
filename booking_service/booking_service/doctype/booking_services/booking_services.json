@@ -12,8 +12,8 @@
   "section_break_gmty",
   "customer",
   "customer_name",
-  "phone",
   "email",
+  "agent",
   "column_break_dbnj",
   "status",
   "total_booking_amount",
@@ -27,8 +27,11 @@
   "one_way",
   "section_break_fdyh",
   "travelers",
+  "ticket_booking_amount",
   "hotel_booking_section",
   "hotel",
+  "column_break_uvtu",
+  "hotel_booking_amount",
   "section_break_twhi",
   "debit_to",
   "income_account"
@@ -50,12 +53,6 @@
    "fieldtype": "Link",
    "label": "Customer",
    "options": "Travelers"
-  },
-  {
-   "fetch_from": "customer.phone",
-   "fieldname": "phone",
-   "fieldtype": "Data",
-   "label": "Phone "
   },
   {
    "fetch_from": "customer.email_address",
@@ -170,22 +167,44 @@
    "options": "Account"
   },
   {
-   "depends_on": "eval:doc.hotel!=null\r\n",
+   "depends_on": "eval:doc.hotel!=null",
    "fieldname": "hotel_booking_section",
    "fieldtype": "Section Break",
    "label": "Hotel Booking"
   },
   {
    "fieldname": "hotel",
-   "fieldtype": "Table",
-   "label": "Hotel",
-   "options": "Hotels Booking"
+   "fieldtype": "Link",
+   "label": "Hotel Booking",
+   "options": "Booking Available Rooms"
+  },
+  {
+   "fieldname": "ticket_booking_amount",
+   "fieldtype": "Data",
+   "label": "Ticket Booking Amount"
+  },
+  {
+   "fetch_from": ".total_amount",
+   "fieldname": "hotel_booking_amount",
+   "fieldtype": "Data",
+   "label": "Hotel Booking Amount"
+  },
+  {
+   "fieldname": "column_break_uvtu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Yemen Frappe",
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "Agent"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-08 13:00:33.092863",
+ "modified": "2025-02-09 03:21:32.775580",
  "modified_by": "Administrator",
  "module": "booking-service",
  "name": "Booking Services",

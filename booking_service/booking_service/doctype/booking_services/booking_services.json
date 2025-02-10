@@ -9,6 +9,8 @@
   "ticket_booking",
   "column_break_woak",
   "hotel_booking",
+  "column_break_mddp",
+  "transfer_booking",
   "section_break_gmty",
   "customer",
   "customer_name",
@@ -29,9 +31,12 @@
   "travelers",
   "ticket_booking_amount",
   "hotel_booking_section",
-  "hotel",
-  "column_break_uvtu",
+  "column_break_jose",
+  "hotels",
   "hotel_booking_amount",
+  "section_break_lxkc",
+  "transfers_booking",
+  "transfer_booking_amount",
   "section_break_twhi",
   "debit_to",
   "income_account"
@@ -167,16 +172,10 @@
    "options": "Account"
   },
   {
-   "depends_on": "eval:doc.hotel!=null",
+   "depends_on": "eval:doc.hotels!=null\r\n",
    "fieldname": "hotel_booking_section",
    "fieldtype": "Section Break",
    "label": "Hotel Booking"
-  },
-  {
-   "fieldname": "hotel",
-   "fieldtype": "Link",
-   "label": "Hotel Booking",
-   "options": "Booking Available Rooms"
   },
   {
    "fieldname": "ticket_booking_amount",
@@ -190,21 +189,53 @@
    "label": "Hotel Booking Amount"
   },
   {
-   "fieldname": "column_break_uvtu",
-   "fieldtype": "Column Break"
-  },
-  {
    "default": "Yemen Frappe",
    "fieldname": "agent",
    "fieldtype": "Link",
    "label": "Agent",
    "options": "Agent"
+  },
+  {
+   "fieldname": "hotels",
+   "fieldtype": "Table",
+   "label": "Hotels",
+   "options": "Hotels Booking"
+  },
+  {
+   "fieldname": "column_break_mddp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transfer_booking",
+   "fieldtype": "Button",
+   "label": "Transfer Booking"
+  },
+  {
+   "depends_on": "eval:doc.transfers_booking!=null\r\n",
+   "fieldname": "section_break_lxkc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "transfers_booking",
+   "fieldtype": "Table",
+   "label": "Transfers Booking",
+   "options": "Transfers Booking"
+  },
+  {
+   "depends_on": "eval:doc.hotels!=null\r\n",
+   "fieldname": "column_break_jose",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transfer_booking_amount",
+   "fieldtype": "Data",
+   "label": "Transfer Booking Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 03:21:32.775580",
+ "modified": "2025-02-09 22:17:23.501657",
  "modified_by": "Administrator",
  "module": "booking-service",
  "name": "Booking Services",

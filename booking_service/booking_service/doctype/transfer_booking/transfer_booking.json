@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{start_location_code}-{end_address_line}-{####}",
+ "creation": "2025-02-09 21:16:05.261651",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "related_flight",
+  "start_location_code",
+  "end_address_line",
+  "end_city_name",
+  "end_country_code",
+  "column_break_gyhp",
+  "transfer_type",
+  "start_date_time",
+  "passengers",
+  "service_provider",
+  "section_break_kmuu",
+  "total_amount",
+  "related_booking_service"
+ ],
+ "fields": [
+  {
+   "fieldname": "start_location_code",
+   "fieldtype": "Data",
+   "label": "Start Location Code"
+  },
+  {
+   "fieldname": "end_address_line",
+   "fieldtype": "Data",
+   "label": "End Address Line"
+  },
+  {
+   "fieldname": "end_city_name",
+   "fieldtype": "Data",
+   "label": "End City Name"
+  },
+  {
+   "fieldname": "end_country_code",
+   "fieldtype": "Data",
+   "label": "End Country Code"
+  },
+  {
+   "fieldname": "transfer_type",
+   "fieldtype": "Select",
+   "label": "Transfer Type",
+   "options": "Private\nShared"
+  },
+  {
+   "fieldname": "start_date_time",
+   "fieldtype": "Datetime",
+   "label": "Start Date Time"
+  },
+  {
+   "fieldname": "passengers",
+   "fieldtype": "Int",
+   "label": "Passengers Count"
+  },
+  {
+   "fieldname": "service_provider",
+   "fieldtype": "Link",
+   "label": "Service Provider",
+   "options": "Transfer Service Provider"
+  },
+  {
+   "fieldname": "related_flight",
+   "fieldtype": "Link",
+   "label": "Related Flight",
+   "options": "Flight Offer"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Data",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "column_break_gyhp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_kmuu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "related_booking_service",
+   "fieldtype": "Link",
+   "label": "Related Booking Service",
+   "options": "Booking Services"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-09 21:42:01.260356",
+ "modified_by": "Administrator",
+ "module": "booking-service",
+ "name": "Transfer Booking",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

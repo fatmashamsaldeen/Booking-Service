@@ -113,7 +113,18 @@ frappe.ui.form.on('Booking Services', {
             }
         }, 500); // تأخير تنفيذ الكود لضمان تحميل العناصر
     }
-,     
+,   
+
+transfer_booking: function(frm) {
+    frm.save(); 
+    frappe.model.with_doctype('Transfer Booking', function() {
+        let new_doc = frappe.model.get_new_doc('Transfer Booking');
+
+        new_doc.related_flight = frm.doc.flight;
+        new_doc.related_booking_service = frm.doc.name;
+        frappe.set_route('Form', 'Transfer Booking', new_doc.name);
+    });
+},
     onload: function(frm) {
         if (frm.doc.outstanding === -1.00) {
             frm.toggle_display('outstanding', false);

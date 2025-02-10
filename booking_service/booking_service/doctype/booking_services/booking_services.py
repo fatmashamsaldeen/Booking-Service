@@ -54,7 +54,9 @@ class BookingServices(Document):
         # تحويل القيم إلى float مع التعامل مع القيم الفارغة
         ticket_amount = float(self.ticket_booking_amount or 0)
         hotel_amount = float(self.hotel_booking_amount or 0)
-        self.total_booking_amount = ticket_amount + hotel_amount
+        transfer_amount = float(self.transfer_booking_amount or 0)
+
+        self.total_booking_amount = ticket_amount + hotel_amount+transfer_amount
 
         # التأكد من وجود حقل outstanding
         outstanding = getattr(self, 'outstanding', None)

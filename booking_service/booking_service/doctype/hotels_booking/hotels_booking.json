@@ -28,6 +28,7 @@
   {
    "fieldname": "booking_available_room",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Booking Available Room",
    "options": "Booking Available Rooms"
   }
@@ -35,7 +36,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-08 22:39:39.546088",
+ "modified": "2025-02-09 20:06:33.796822",
  "modified_by": "Administrator",
  "module": "booking-service",
  "name": "Hotels Booking",

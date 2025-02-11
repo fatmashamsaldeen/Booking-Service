@@ -11,15 +11,19 @@
   "hotel_booking",
   "column_break_mddp",
   "transfer_booking",
+  "column_break_deqf",
+  "status",
   "section_break_gmty",
   "customer",
   "customer_name",
   "email",
   "agent",
+  "company",
   "column_break_dbnj",
-  "status",
   "total_booking_amount",
   "outstanding",
+  "commition_rate",
+  "paid_amount",
   "section_break_zxqk",
   "flight",
   "amended_from",
@@ -29,7 +33,6 @@
   "one_way",
   "section_break_fdyh",
   "travelers",
-  "ticket_booking_amount",
   "hotel_booking_section",
   "column_break_jose",
   "hotels",
@@ -178,11 +181,6 @@
    "label": "Hotel Booking"
   },
   {
-   "fieldname": "ticket_booking_amount",
-   "fieldtype": "Data",
-   "label": "Ticket Booking Amount"
-  },
-  {
    "fetch_from": ".total_amount",
    "fieldname": "hotel_booking_amount",
    "fieldtype": "Data",
@@ -230,12 +228,34 @@
    "fieldname": "transfer_booking_amount",
    "fieldtype": "Data",
    "label": "Transfer Booking Amount"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "commition_rate",
+   "fieldtype": "Percent",
+   "label": "Commition Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_deqf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 22:17:23.501657",
+ "modified": "2025-02-11 21:25:25.655367",
  "modified_by": "Administrator",
  "module": "booking-service",
  "name": "Booking Services",

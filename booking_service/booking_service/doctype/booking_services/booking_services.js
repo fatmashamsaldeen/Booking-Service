@@ -125,32 +125,104 @@ transfer_booking: function(frm) {
         frappe.set_route('Form', 'Transfer Booking', new_doc.name);
     });
 },
-    onload: function(frm) {
-        if (frm.doc.outstanding === -1.00) {
-            frm.toggle_display('outstanding', false);
-        }
-    },
-    refresh: function(frm) {
-        calculate_ticket_booking_amount(frm);
-        if (frm.doc.docstatus === 1) {
-            if (!frm.custom_buttons['Payment']) {
-                frm.add_custom_button(__('Payment'), function() {
-                    frappe.msgprint(__('Processing Payment...'));
-                    frappe.call({
-                        method: "booking_service.api.make_payment_entry",
-                        args: {
-                            source_name: frm.doc.name
-                        },
-                        callback: function (r) {
-                            if (r.message) {
-                                frappe.model.sync(r.message);
-                                frappe.set_route("Form", r.message.doctype, r.message.name);
-                            }
-                        }
-                    });
-                });
+onload: function(frm) {
+    // if (frm.doc.outstanding === -1) {
+    //     frm.toggle_display('outstanding', false);
+    // };
+    frappe.call({
+        method: "frappe.client.get_single_value",
+        args: {
+            doctype: "Booking Setting ", // اسم الـ Doctype الذي يحتوي على الإعدادات
+            field: "commition_rate" // اسم الحقل المطلوب
+        },
+        callback: function(response) {
+            if (response.message) {
+                frm.set_value("commition_rate", response.message);
             }
         }
+    });
+},
+        show_general_ledger: function(frm) {
+            frm.add_custom_button(
+                __("Ledger"),
+                function () {
+                    frappe.route_options = {
+                        voucher_no: frm.doc.name,
+                    };
+                    frappe.set_route("query-report", "General Ledger");
+                },
+                "fa fa-table"
+            );
+
+
+    if (frm.doc.docstatus === 1) {
+        if (!frm.custom_buttons['Payment']) {
+            frm.add_custom_button(__('Payment'), function() {
+                frappe.msgprint(__('Processing Payment...'));
+                frappe.call({
+                    method: "booking_service.api.make_payment_entry",
+                    args: {
+                        source_name: frm.doc.name
+                    },
+                    callback: function (r) {
+                        if (r.message) {
+                            frappe.model.sync(r.message);
+                            frappe.set_route("Form", r.message.doctype, r.message.name);
+                        }
+                    }
+                });
+            });
+        }
+    }
+},
+
+    refresh: function(frm) {
+        calculate_ticket_booking_amount(frm);
+        if (frm.doc.outstanding === -1) {
+            frm.toggle_display('outstanding', false);
+        };
+        
+        // if (frm.doc.docstatus === 1) {
+        //     frappe.call({
+        //         method: "update_outstanding",  // اسم التطبيق والوحدة المناسبة
+        //         args: {
+        //             docname: frm.doc.name,
+        //             outstanding: frm.doc.paid_amount
+        //         },
+        //         callback: function(response) {
+        //             if (!response.exc) {
+        //                 frappe.msgprint("تم تحديث القيمة بنجاح!");
+        //                 frm.reload_doc();  // إعادة تحميل المستند لعرض القيم المحدثة
+        //             }
+        //         }
+        //     });
+        // }
+
+
+        // if (frm.doc.docstatus === 1) {
+        //     if (!frm.custom_buttons['Payment']) {
+        //         frm.add_custom_button(__('Payment'), function() {
+        //             frappe.msgprint(__('Processing Payment...'));
+        //             frappe.call({
+        //                 method: "booking_service.api.make_payment_entry",
+        //                 args: {
+        //                     source_name: frm.doc.name
+        //                 },
+        //                 callback: function (r) {
+        //                     if (r.message) {
+        //                         frappe.model.sync(r.message);
+        //                         frappe.set_route("Form", r.message.doctype, r.message.name);
+        //                     }
+        //                 }
+        //             });
+        //         });
+        //     }
+        // };
+        if (frm.doc.docstatus == 1 ) {
+            frm.events.show_general_ledger(frm);
+            erpnext.accounts.ledger_preview.show_accounting_ledger_preview(frm);
+        };
+
     },
     
     flight_price: function(frm) {

@@ -7,7 +7,7 @@ frappe.ui.form.on('Booking Services', {
                 date: null,
                 origin_location_code: null,
                 destination_location_code: null,
-                number_of_bookable_seats: null,
+                seat_count: null,
             },
             add_filters_group: 1,
 

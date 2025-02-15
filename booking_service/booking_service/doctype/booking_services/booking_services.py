@@ -218,6 +218,7 @@ class BookingServices(AccountsController):
         return gl_entries
 
     def record_initial_entry(self, gl_entries):    
+        remarks = self.get("remarks") or "No remarks provided"  # Ensure remarks has a value
 
         if self.paid_amount > 0:
             gl_entries.append(
@@ -230,7 +231,9 @@ class BookingServices(AccountsController):
                     "company": self.company,
                     # "cost_center": self.cost_center,
                     "party_type": "Customer", 
-                    "party": self.customer_name 
+                    "party": self.customer_name ,
+                    "remarks": remarks  # إضافة remarks لتجنب الخطأ
+
                 })
             )
 
@@ -243,6 +246,8 @@ class BookingServices(AccountsController):
                     "posting_date": frappe.utils.today(),
                     "against": self.debit_to,
                     # "cost_center": self.cost_center,
+                    "remarks": remarks  # إضافة remarks لتجنب الخطأ
+
                 })
             )
 

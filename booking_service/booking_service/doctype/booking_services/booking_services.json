@@ -33,6 +33,7 @@
   "one_way",
   "section_break_fdyh",
   "travelers",
+  "ticket_booking_amount",
   "hotel_booking_section",
   "column_break_jose",
   "hotels",
@@ -247,15 +248,21 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "paid_amount",
    "fieldtype": "Currency",
    "label": "Paid Amount"
+  },
+  {
+   "fieldname": "ticket_booking_amount",
+   "fieldtype": "Currency",
+   "label": "Ticket Booking Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-11 21:25:25.655367",
+ "modified": "2025-02-14 23:02:08.492594",
  "modified_by": "Administrator",
  "module": "booking-service",
  "name": "Booking Services",

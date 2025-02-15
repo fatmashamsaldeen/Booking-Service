@@ -1,29 +1,22 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:name1",
+ "autoname": "field:name12",
  "creation": "2025-02-08 10:32:19.690500",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "name1",
+  "name12",
   "chaincode",
   "iatacode",
   "hotelid",
   "countrycode",
   "rating",
   "lastupdate",
-  "amenities",
   "rooms",
   "available_rooms"
  ],
  "fields": [
-  {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name",
-   "unique": 1
-  },
   {
    "fieldname": "chaincode",
    "fieldtype": "Data",
@@ -37,7 +30,8 @@
   {
    "fieldname": "hotelid",
    "fieldtype": "Data",
-   "label": "Hotel Id"
+   "label": "Hotel Id",
+   "unique": 1
   },
   {
    "fieldname": "countrycode",
@@ -55,12 +49,6 @@
    "label": "last update"
   },
   {
-   "fieldname": "amenities",
-   "fieldtype": "Table",
-   "label": "Amenities",
-   "options": "Amenitiess"
-  },
-  {
    "fieldname": "rooms",
    "fieldtype": "Table",
    "label": "Rooms",
@@ -70,11 +58,17 @@
    "fieldname": "available_rooms",
    "fieldtype": "Data",
    "label": "Available Rooms"
+  },
+  {
+   "fieldname": "name12",
+   "fieldtype": "Data",
+   "label": "Name",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-08 13:45:59.765943",
+ "modified": "2025-02-14 22:47:16.626540",
  "modified_by": "Administrator",
  "module": "booking-service",
  "name": "Hotel",

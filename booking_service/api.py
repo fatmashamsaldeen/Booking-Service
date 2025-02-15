@@ -48,7 +48,7 @@ def fetch_and_store_flight_offers():
     url = f"https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode={origin_location_code}&destinationLocationCode={destination_location_code}&departureDate={departure_date}&adults={seat_count}&nonStop=false&max=250"
 
     headers = {
-        "Authorization": "Bearer PoaAQSnagFG7WQcWKEhAD4Ap0dHw"
+        "Authorization": "Bearer IDt8AHLGKikRw0GiodxBSDnpYG3D"
     }
 
     response = requests.get(url, headers=headers)
@@ -88,7 +88,7 @@ def fetch_and_store_hotels():
     url = "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city?cityCode=PAR&radius=5&radiusUnit=KM&hotelSource=ALL"
 
     headers = {
-        "Authorization": "Bearer UBFKPGGxB8lEX0H4KLQb4zFIT9C0"
+        "Authorization": "Bearer VAnWA4AG4a8a3SkXCjtIZGIfCnxQ"
     }
 
     response = requests.get(url, headers=headers)
@@ -103,10 +103,10 @@ def fetch_and_store_hotels():
             if existing_hotel:
                 # الفندق موجود مسبقًا، قم بتحديث بياناته
                 hotel_doc = frappe.get_doc("Hotel", existing_hotel)
-                hotel_doc.name1 = hotel.get("name")
+                hotel_doc.name12 = hotel.get("name")
                 hotel_doc.chaincode = hotel.get("chainCode")
                 hotel_doc.iatacode = hotel.get("iataCode")
-                hotel_doc.countrycode = hotel["address"].get("countryCode")
+                # hotel_doc.countrycode = hotel["address"].get("countryCode")
                 hotel_doc.rating = hotel.get("rating")
                 hotel_doc.lastupdate = hotel.get("lastUpdate")
 
@@ -120,11 +120,11 @@ def fetch_and_store_hotels():
                 # الفندق غير موجود، قم بإضافته
                 hotel_doc = frappe.get_doc({
                     "doctype": "Hotel",
-                    "name1": hotel.get("name"),
+                    "name12": hotel.get("name"),
                     "chaincode": hotel.get("chainCode"),
                     "iatacode": hotel.get("iataCode"),
                     "hotelid": hotel_id,
-                    "countrycode": hotel["address"].get("countryCode"),
+                    # "countrycode": hotel["address"].get("countryCode"),
                     "rating": hotel.get("rating"),
                     "lastupdate": hotel.get("lastUpdate"),
                 })
